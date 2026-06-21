@@ -1,0 +1,48 @@
+2026-06-21 14:26:11
+{
+            "MerchantRequestID":"2554-4c3a-9cb3-33103ee3c9de42100",
+            "CheckoutRequestID":"ws_CO_21062026152609308724367535",
+            "ResponseCode": "0",
+            "ResponseDescription":"Success. Request accepted for processing",
+            "CustomerMessage":"Success. Request accepted for processing"
+        }
+        
+------------------------------------------------------------
+2026-06-21 14:31:15
+{
+                    "requestId":"2554-4c3a-9cb3-33103ee3c9de42230",
+                    "errorCode": "500.001.1001",
+                    "errorMessage": "Merchant does not exist"
+                }
+            
+------------------------------------------------------------
+2026-06-21 14:38:07
+{
+            "MerchantRequestID":"2765-4064-9576-1c19cafc7ca047638",
+            "CheckoutRequestID":"ws_CO_21062026153806028724367535",
+            "ResponseCode": "0",
+            "ResponseDescription":"Success. Request accepted for processing",
+            "CustomerMessage":"Success. Request accepted for processing"
+        }
+        
+------------------------------------------------------------
+2026-06-21 15:19:33
+{
+            "MerchantRequestID":"2765-4064-9576-1c19cafc7ca049178",
+            "CheckoutRequestID":"ws_CO_21062026161931699724367535",
+            "ResponseCode": "0",
+            "ResponseDescription":"Success. Request accepted for processing",
+            "CustomerMessage":"Success. Request accepted for processing"
+        }
+        
+------------------------------------------------------------
+2026-06-21 16:27:36
+{
+            "MerchantRequestID":"2554-4c3a-9cb3-33103ee3c9de47005",
+            "CheckoutRequestID":"ws_CO_21062026172735079724367535",
+            "ResponseCode": "0",
+            "ResponseDescription":"Success. Request accepted for processing",
+            "CustomerMessage":"Success. Request accepted for processing"
+        }
+        
+------------------------------------------------------------
