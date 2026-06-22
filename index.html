@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Internet Access Portal</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f7fa;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+}
+
+.container{
+    width:100%;
+    max-width:500px;
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo h1{
+    color:#0066cc;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.logo p{
+    color:#666;
+    font-size:14px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#333;
+}
+
+input,
+select{
+    width:100%;
+    padding:14px;
+    border:1px solid #dcdcdc;
+    border-radius:8px;
+    font-size:16px;
+    margin-bottom:18px;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#0066cc;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#00a651;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#008542;
+}
+
+.packages{
+    background:#f8f9fb;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:20px;
+}
+
+.packages h3{
+    margin-bottom:10px;
+    color:#0066cc;
+    font-size:18px;
+}
+
+.packages ul{
+    list-style:none;
+}
+
+.packages li{
+    padding:6px 0;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+.packages li:last-child{
+    border-bottom:none;
+}
+
+.footer{
+    margin-top:20px;
+    text-align:center;
+    color:#666;
+    font-size:12px;
+}
+
+/* WhatsApp Floating Button */
+
+.whatsapp-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    box-shadow:0 4px 12px rgba(0,0,0,.3);
+    z-index:9999;
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.05);
+}
+
+.whatsapp-btn svg{
+    width:32px;
+    height:32px;
+    fill:white;
+}
+
+/* Mobile Optimizations */
+
+@media (max-width:600px){
+
+    .container{
+        padding:20px;
+        border-radius:12px;
+    }
+
+    .logo h1{
+        font-size:24px;
+    }
+
+    button{
+        font-size:16px;
+    }
+
+    .whatsapp-btn{
+        width:55px;
+        height:55px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <h1>🌐 Internet Access</h1>
+        <p>Select a package and pay via M-Pesa</p>
+    </div>
+
+    <div class="packages">
+        <h3>Available Packages</h3>
+
+        <ul>
+            <li>🕒 1 Hour - KES 10</li>
+            <li>🕒 3 Hours - KES 20</li>
+            <li>📅 24 Hours - KES 50</li>
+            <li>📅 7 Days - KES 250</li>
+            <li>📅 30 Days - KES 800</li>
+        </ul>
+    </div>
+
+    <form action="stkpush.php" method="POST">
+
+        <!-- MikroTik Variables -->
+        <input type="hidden" name="mac" value="$(mac)">
+        <input type="hidden" name="ip" value="$(ip)">
+        <input type="hidden" name="link_login" value="$(link-login)">
+        <input type="hidden" name="link_orig" value="$(link-orig)">
+
+        <label>Phone Number</label>
+
+        <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="07XXXXXXXX or 2547XXXXXXXX"
+            required
+        >
+
+        <label>Select Package</label>
+
+        <select name="amount" required>
+            <option value="">Choose Package</option>
+            <option value="10">1 Hour - KES 10</option>
+            <option value="20">3 Hours - KES 20</option>
+            <option value="50">24 Hours - KES 50</option>
+            <option value="250">7 Days - KES 250</option>
+            <option value="800">30 Days - KES 800</option>
+        </select>
+
+        <button type="submit">
+            Pay with M-Pesa
+        </button>
+
+    </form>
+
+    <div class="footer">
+        Powered by Internet Networking Solutions
+    </div>
+
+</div>
+
+<!-- WhatsApp Support Button -->
+
+<a
+class="whatsapp-btn"
+href="https://wa.me/254724367535?text=Hello%20Support,%20I%20need%20help%20with%20WiFi%20access."
+target="_blank"
+title="WhatsApp Support"
+>
+
+<svg viewBox="0 0 32 32">
+<path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2c2.3 1.3 4.9 2 7.7 2h.1c8.6 0 15.6-7 15.6-15.6C31.6 7.4 24.6.4 16 .4zm0 28.4c-2.4 0-4.8-.7-6.8-1.9l-.5-.3-4.9 1.3 1.3-4.8-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.1 5.8-12.9 12.9-12.9S28.6 8.9 28.6 16 23 28.8 16 28.8zm7.1-9.6c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.3-.9 1.2-1.1 1.4-.2.2-.4.3-.7.1-.4-.2-1.5-.5-2.9-1.7-1.1-.9-1.8-2.1-2-2.4-.2-.4 0-.5.2-.7.2-.2.4-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.7 5.8 5.2.8.4 1.5.6 2 .8.8.3 1.5.3 2.1.2.6-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.1-.3-.2-.7-.4z"/>
+</svg>
+
+</a>
+
+<script>
+
+document.querySelector('form').addEventListener('submit', function(e){
+
+    let phone = document.getElementById('phone').value.trim();
+
+    // Remove spaces and non-digits
+    phone = phone.replace(/\D/g, '');
+
+    // Convert 07XXXXXXXX -> 2547XXXXXXXX
+    if(phone.startsWith('0')){
+        phone = '254' + phone.substring(1);
+    }
+
+    // Convert 7XXXXXXXX -> 2547XXXXXXXX
+    if(phone.length === 9 && phone.startsWith('7')){
+        phone = '254' + phone;
+    }
+
+    // Validate final format
+    if(!/^2547\d{8}$/.test(phone)){
+        alert('Please enter a valid Safaricom number.\nExamples:\n0724367535\n254724367535');
+        e.preventDefault();
+        return false;
+    }
+
+    document.getElementById('phone').value = phone;
+
+});
+
+</script>
+
+</body>
+</html>
